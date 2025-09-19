@@ -3,10 +3,10 @@
 
 O objetivo é simular a execução de um conjunto de tarefas em um processador, aplicando cinco algoritmos distintos de escalonamento:
 1.  First-Come, First-Served (FCFS) 
-2.  [cite_start]Shortest-Job-First (SJF) (não preemptivo)
+2.  Shortest-Job-First (SJF) (não preemptivo)
 3.  Prioridade (não preemptivo)
-4.  [cite_start]Round-Robin (RR)
-5.  [cite_start]Prioridade com Round-Robin
+4.  Round-Robin (RR)
+5.  Prioridade com Round-Robin
 
 O projeto foi desenvolvido em **C/C++** e foi projetado para ser executado em um ambiente **Linux**
 
