@@ -41,7 +41,7 @@ Após a compilação, o executável correspondente é criado. Para executar, é 
   T5, 10, 10
   ```
 
-## Análise de Resultados
+## Análise de Resultados Utilizando o Exemplo Acima
 * SJF apresentou o melhor desempenho com menor tempo de espera, de retorno médios e de resposta o que é consistente com a teoria que o aponta como ótimo em cenários não preemptivos
 * Round-Robin (RR) se destacou com o menor tempo de resposta, demonstrando sua superioridade para sistemas interativos, garantindo que todas as tarefas comecem a ser executadas rapidamente
 * FCFS apresentou o desempenho mais baixo em geral, sofrendo com o "efeito comboio", onde tarefas curtas precisaram esperar a conclusão de todas as que chegaram antes
