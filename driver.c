@@ -4,10 +4,10 @@
 
 #include "scheduler.h"
 
-#define MAX_LINE_LENGTH 100
+#define MAX_LINE_LENGTH 100//tamanho maximo de linha lido no arquivo
 
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
+    if (argc != 2) {//tratamento caso seja passado mais ou menos argumentos
         fprintf(stderr, "Uso: %s <arquivo_de_tarefas>\n", argv[0]);
         return 1;
     }

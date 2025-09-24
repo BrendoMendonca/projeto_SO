@@ -7,24 +7,24 @@
 #include "cpu.h"
 
 static struct node *task_list = NULL;//ponteiro para a lista de prontos
-static struct node *completed_list = NULL;////ponteiro para a lista de concluidos
+static struct node *completed_list = NULL;//ponteiro para a lista de concluidos
 static int tid_counter = 0;//contador para gerar os IDs das tarefas
 
 //adiciona uma tarefa à lista do escalonador
 void add(char *name, int priority, int burst) {
     Task *new_task = malloc(sizeof(Task));
-    new_task->name = strdup(name);
+    new_task->name = strdup(name);//aloca memória para uma nova string e armazena o nome da tarefa
     new_task->priority = priority;
     new_task->burst = burst;
     new_task->remaining_burst = burst;
-    new_task->tid = __sync_fetch_and_add(&tid_counter, 1);
-    new_task->response_time = -1; //indica que ainda não foi executado
+    new_task->tid = __sync_fetch_and_add(&tid_counter, 1);//operação atômica- incrementa o contador de ID e retorna o valor *antes* do incremento - garante que cada tarefa receba um ID único
+    new_task->response_time = -1;//indica que ainda não foi executado
     insert(&task_list, new_task);
 }
 
 //seleciona a próxima tarefa-primeira da lista para FCFS
 Task *pickNextTask() {
-    if (task_list == NULL) return NULL;
+    if (task_list == NULL) return NULL;//verifica s e alista está vazia
     return task_list->task;
 }
 
@@ -66,19 +66,19 @@ void schedule() {
     int current_time = 0;//inicialização do tempo da tarefa
     printf("Escalonador FCFS\n");
 
-    while (task_list != NULL) {
-        Task *task = pickNextTask();
+    while (task_list != NULL) {//roda até tiver tarefas na lista
+        Task *task = pickNextTask();//pega a próxima taregfa
 
         if (task->response_time == -1) {//para a primeira execução da tarefa
-            task->response_time = current_time;
+            task->response_time = current_time;//o tempo atual é o tempo de resposta
         }
 
         //a tarefa roda de uma vez - não preeptivo
-        int slice = task->burst;
+        int slice = task->burst;//tempo que precisa para rodar
         run(task, slice);
         current_time += slice;//atualiza o tempo com a duração da execução da tarefa
         
-        //o tempo de turnaround é o tempo de conclusão, como a tarefa acabou de terminar, é o tempo atual.
+        //o tempo de turnaround é o tempo de conclusão, como a tarefa acabou de terminar, é o tempo atual
         task->turnaround_time = current_time;
         
         delete(&task_list, task);//remoção da tarefa da lista após sua conclusão
