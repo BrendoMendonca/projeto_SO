@@ -11,6 +11,11 @@ O objetivo é simular a execução de um conjunto de tarefas em um processador, 
 4.  Round-Robin (RR)
 5.  Prioridade com Round-Robin
 
+### Equipe e Divisão de tarefas:
+ BRENDO DE ALMEIDA MENDONCA - 20190172521 - FCFS e Round Robin
+ BRUNO BERTO DA SILVA  - 20200018844 - Priority e Priority_RR
+ JOAO LUCAS FELIX DE MACENA - 20200005363 - sjf
+
 O projeto foi desenvolvido em **C/C++** e foi projetado para ser executado em um ambiente **Linux**
 
 O projeto consiste em um simulador que recebe uma lista de tarefas, cada uma com um nome, prioridade e tempo de burst de CPU. O simulador então executa essas tarefas de acordo com o algoritmo de escalonamento selecionado e, ao final, calcula e exibe métricas de desempenho, como tempo de espera, tempo de retorno (turnaround) e tempo de resposta médios. Além disso, como desafio adicional, a atribuição de identificadores de tarefa (TID) foi implementada de forma segura para ambientes concorrentes (SMP) usando um inteiro atômico, e o cálculo das métricas de desempenho foi incluído
